@@ -69,6 +69,10 @@ p {
     margin-bottom: 4px;
 }
 
+.muted-text a {
+    color: var(--muted-text-color);
+}
+
 .navbar {
     display: flex;
     justify-content: center;
