@@ -32,12 +32,14 @@ def convert():
 
 @app.route('/convert/<conversion_id>/download')
 def download_conversion(conversion_id):
-    if os.path.exists(f"instance/conversions/{conversion_id}/output.zip"):
-        return send_file(f"../instance/conversions/{conversion_id}/output.zip")
-    abort(404)
+    if not os.path.exists(f"instance/conversions/{conversion_id}/output.zip"):
+        abort(404)
+    return send_file(f"../instance/conversions/{conversion_id}/output.zip")
 
 @app.route('/convert/<conversion_id>')
 def view_conversion(conversion_id):
+    if not os.path.exists(f"instance/conversions/{conversion_id}"):
+        return render_template("conversion_not_found.html")
     original_files = [fn for fn in os.listdir(f"instance/conversions/{conversion_id}") if fn.endswith(".py") or fn.endswith(".zip")]
     if not os.path.exists(f"instance/conversions/{conversion_id}/info.txt"):
         return render_template("view_conversion.html", status="Your conversion is in queue", download=None, filenames=original_files)
