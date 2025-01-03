@@ -64,7 +64,7 @@ def convert(directory):
             if "run.py" in python_files:
                 root_file = "run.py"
             if not root_file:
-                write_to_info_file(directory, f"Conversion failed: Please rename the root file of your project to main.py or run.py")
+                write_to_info_file(directory, f"Conversion failed: Please rename the root file of your project to main.py or run.py and make sure it is located in the root of the zip archive (not in any folder)")
                 return False
             venv = False
             if "requirements.txt" in os.listdir(f"instance/conversions/{directory}"):

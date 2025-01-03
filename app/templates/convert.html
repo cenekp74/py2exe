@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>py2exe - convert python to exe online</title>
+<title>py2exe.com - convert python to exe online</title>
 <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
 <style>
     .filepond {
         width: 100%;
         box-shadow: 1px 1px 5px 0px var(--primary-color);
         border-radius: var(--border-radius);
+    }
+
+    .filepond--root, .filepond--drop-label {
+        height: 40vh;
     }
 
     .filepond .filepond--panel-root {
@@ -25,11 +29,7 @@
     </p>
     <p>
         To convert your python project, please upload it below. You can upload a single <b>.py</b> file as well as a <b>zip</b> archive of multiple files. If you
-        are uploading multiple files in zip, please name the main file "main.py" or "run.py". 
-    </p>
-    <p>
-        If your project requires any python libraries, please include them in a <b>requirements.txt</b> file
-        inside the zip (package names separated by newline). 
+        are uploading multiple files in zip, please name the main file "main.py" or "run.py" and make sure it is in the root of the zip file. 
     </p>
 </div>
 
@@ -37,6 +37,14 @@
     class="filepond"
     name="filepond" 
     data-max-files="1">
+<p class="muted-text">
+    *if your project requires any python libraries, please include them in a <b>requirements.txt</b> file
+    inside the zip (package names separated by newline). 
+</p>
+<p class="muted-text">
+    **when uploading a zip file, please make sure that your project is in the root of the zip, not in a subfolder
+</p>
+
 
 <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
 <script src="{{ url_for('static', filename='js/convert.js') }}"></script>

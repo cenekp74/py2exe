@@ -1,6 +1,7 @@
 :root {
     --bg-color: #000314;
     --text-color: #fffcdd;
+    --muted-text-color: #7b7883;
     --primary-color: #fded6c;
     --secondary-color: #0f3234;
     --border-radius: 10px;
@@ -61,27 +62,34 @@ p {
     background-color: var(--button-hover-color);
 }
 
+.muted-text {
+    font-size: .95rem;
+    color: var(--muted-text-color);
+    margin: 0;
+    margin-bottom: 4px;
+}
+
 .navbar {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: calc(100vw - 1rem); /* - padding*2 */
+    width: calc(100vw - 16px); /* - padding*2 */
     height: auto;
     border-bottom: 1px solid var(--division-line-color);
     height: 70px;
     position: relative;
-    padding: .5rem;
+    padding: 8px;
+    background-color: var(--navbar-bg-color);
 }
 
 .navbar > div {
     display: flex;
     align-items: center;
     align-content: center;
-    justify-content: start;
+    justify-content: space-between;
     min-width: min(500px, 95vw);
     width: 40vw;
     position: fixed;
-    background-color: var(--navbar-bg-color);
 }
 
 .navbar a.heading {
@@ -90,7 +98,7 @@ p {
     text-decoration: none;
     font-weight: bold;
     position: relative;
-    margin-right: 2rem;
+    margin-right: 32px;
     font-family: "trebuchet ms", 'Roboto', sans-serif;
 }
 
@@ -102,7 +110,7 @@ p {
     border-radius: var(--border-radius);
     position: relative;
     cursor: pointer;
-    transition: background-color .07s;
+    transition: background-color .16s;
     text-transform: uppercase;
 }
 
@@ -122,10 +130,10 @@ p {
 
     .navbar a.heading {
         font-size: 2.5rem;
-        margin-right: .3rem;
+        margin-right: 4px;
     }
 
     .navbar {
-        padding: .5rem .1rem;
+        padding: 8px 4px;
     }
 }
