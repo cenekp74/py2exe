@@ -56,9 +56,10 @@ def convert(directory):
             python_files = [f for f in os.listdir(f"instance/conversions/{directory}") if f.endswith(".py")]
             root_file = None
             if len(python_files) == 0:
-                if len(os.listdir(f"instance/conversions/{directory}")) == 1:
-                    try:                        
-                        for file in os.listdir(f"instance/conversions/{directory}/{os.listdir(f"instance/conversions/{directory}")[0]}"):
+                dirs = [f.name for f in os.scandir(f"instance/conversions/{directory}") if f.is_dir()] # find all subfolders
+                if len(dirs) == 1: # if there is only one folder
+                    try:
+                        for file in os.listdir(f"instance/conversions/{directory}/{os.listdir(f"instance/conversions/{dirs[0]}")[0]}"): # move everything from the subfolder to the root folder
                             shutil.move(f"instance/conversions/{directory}/{filename.removesuffix('.zip')}/{file}", f"instance/conversions/{directory}")
                             python_files = [f for f in os.listdir(f"instance/conversions/{directory}") if f.endswith(".py")]
                     except Exception as _e:
