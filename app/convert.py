@@ -56,10 +56,13 @@ def convert(directory):
             python_files = [f for f in os.listdir(f"instance/conversions/{directory}") if f.endswith(".py")]
             root_file = None
             if len(python_files) == 0:
-                if os.path.exists(f"instance/conversions/{directory}/{filename.removesuffix('.zip')}"):
-                    for file in os.listdir(f"instance/conversions/{directory}/{filename.removesuffix('.zip')}"):
-                        shutil.move(f"instance/conversions/{directory}/{filename.removesuffix('.zip')}/{file}", f"instance/conversions/{directory}")
-                        python_files = [f for f in os.listdir(f"instance/conversions/{directory}") if f.endswith(".py")]
+                if len(os.listdir(f"instance/conversions/{directory}")) == 1:
+                    try:                        
+                        for file in os.listdir(f"instance/conversions/{directory}/{os.listdir(f"instance/conversions/{directory}")[0]}"):
+                            shutil.move(f"instance/conversions/{directory}/{filename.removesuffix('.zip')}/{file}", f"instance/conversions/{directory}")
+                            python_files = [f for f in os.listdir(f"instance/conversions/{directory}") if f.endswith(".py")]
+                    except Exception as _e:
+                        pass
                 else:
                     write_to_info_file(directory, f"Conversion failed: No python files found in your zip. Please rename the root file of your project to main.py or run.py and make sure it is located in the root of the zip archive (not in any folder)")
                     return False
