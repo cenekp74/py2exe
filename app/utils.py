@@ -17,5 +17,5 @@ def start_conversion(conversion_id):
 
 @shared_task
 def delete_conversion(conversion_id):
-    shutil.rmtree(f"app/instance/conversions/{conversion_id}")
+    shutil.rmtree(f"instance/conversions/{conversion_id}")
     return True
