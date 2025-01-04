@@ -26,10 +26,8 @@ body {
     width: fit-content;
     min-width: 40vw;
     max-width: min(500px, 95vw);
-    margin: 0 auto;
-    margin-bottom: 60px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 60px auto;
+    padding-top: 90px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -83,7 +81,7 @@ p {
     height: auto;
     border-bottom: 1px solid var(--division-line-color);
     height: 70px;
-    position: relative;
+    position: fixed;
     padding: 8px;
     background-color: var(--navbar-bg-color);
 }
