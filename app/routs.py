@@ -53,3 +53,7 @@ def view_conversion(conversion_id):
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.route('/how-to')
+def how_to():
+    return render_template('how_to.html')

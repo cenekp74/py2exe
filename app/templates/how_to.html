@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>How to compile your python script to exe online</title>
+<style>
+    h1 {
+        margin-top: 20px;
+        border-bottom: 1px solid var(--text-color);
+        padding: 8px 0;
+    }
+
+    h2 {
+        margin-bottom: 0;
+    }
+</style>
+{% endblock %}
+
+
+{% block body %}
+<h1>How to compile python to exe online</h1>
+<p style="margin: 0;">
+    When you finish your python project and want to distribute it, the best way to do it is to create an executable. 
+    This can be achieved using various tools like <a href="https://pyinstaller.org">pyinstaller</a> or <a href="https://nuitka.net/">nuitka</a>. 
+    But working with these tools can be difficult and annoying for some, and none of them can compile python to a windows executable from linux or macos.
+</p>
+<p>
+    This is where <a href="/">py2exe.com</a> comes in. It is the first and only <b>online python compiler</b>. It uses pyinstaller under the hood to create
+    windows executables seamlessly. 
+</p>
+<h2>Instructions</h2>
+<p>
+    Using py2exe.com is quite straightforward. Simply upload your python script to <a href="/convert">py2exe.com/convert</a> and wait for it to convert. 
+    <br>If you have a bigger project with multiple files, create a zip archive from them. If your project requires any special libraries, please include them
+    in requirements.txt inside of the zip. Then just upload your zip archive and wait. It might take some time for larger projects to compile, but it should be no more than 
+    5 minutes. 
+</p>
+<p style="margin: 0;">
+    The result of the conversion will be a zip file with the .exe inside. To run in, first unzip the output file. Make sure to always keep the .exe file in the same directory
+    as "_internal" folder. 
+</p>
+
+{% endblock %}

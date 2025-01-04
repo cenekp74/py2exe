@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>py2exe.com - convert python to exe online</title>
+<title>Convert your python script to exe online</title>
 <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
 <style>
     .filepond {
@@ -25,11 +25,14 @@
 <div>
     <h1>Convert your python project to exe!</h1>
     <p>
-        <b>py2exe.com</b> provides a simple way to convert your python files to windows executable (.exe).
+        <b>py2exe.com</b> provides a simple way to convert your python projects to windows executable (.exe).
     </p>
     <p>
-        To convert your python project, please upload it below. You can upload a single <b>.py</b> file as well as a <b>zip</b> archive of multiple files. If you
+        To convert your project, please upload it below. You can upload a single <b>.py</b> script as well as a <b>zip</b> archive of multiple files. If you
         are uploading multiple files in zip, please name the main file "main.py" or "run.py" and make sure it is in the root of the zip file. 
+    </p>
+    <p>
+        If you run into any problems, please refer to the <a href="{{ url_for('how_to') }}#instructions">how to guide</a>.
     </p>
 </div>
 
