@@ -83,7 +83,7 @@ def convert(directory):
             run_pyinstaller(directory, root_file, venv=venv)
             break
 
-    if os.path.exists(f"instance/conversions/{directory}/dist/{filename.split(".")[0]}/{filename.split(".")[0]}.exe"):
+    if os.path.exists(f"instance/conversions/{directory}/dist/{filename.split(".")[0]}/{filename.split(".")[0]}.exe") or os.path.exists(f"instance/conversions/{directory}/dist/{root_file.split(".")[0]}/{root_file.split(".")[0]}.exe"):
         write_to_info_file(directory, "Finshed conversion successfully\n")
         write_to_info_file(directory, "Starting zip archive creation\n")
         shutil.make_archive(f"instance/conversions/{directory}/output", "zip", f"instance/conversions/{directory}/dist")
