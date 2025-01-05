@@ -46,7 +46,8 @@ def convert(directory):
     write_to_info_file(directory, "Analyzing file(s)\n")
     for filename in os.listdir(f"instance/conversions/{directory}"): # expects only one file in instance/conversions/{directory} (either one py script or zip)
         if filename.endswith(".py"):
-            write_to_info_file(directory, "Starting conversion\n")
+            root_file = filename
+            write_to_info_file(directory, f"Converting - {root_file}\n")
             run_pyinstaller(directory, filename)
             break
 
