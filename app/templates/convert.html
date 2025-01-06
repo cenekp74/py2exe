@@ -3,21 +3,7 @@
 {% block head %}
 <title>Convert your python script to exe online</title>
 <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
-<style>
-    .filepond {
-        width: 100%;
-        box-shadow: 1px 1px 5px 0px var(--primary-color);
-        border-radius: var(--border-radius);
-    }
-
-    .filepond--root, .filepond--drop-label {
-        height: 40vh;
-    }
-
-    .filepond .filepond--panel-root {
-        background-color: var(--primary-color);
-    }
-</style>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/convert.css') }}">
 {% endblock %}
 
 
@@ -32,7 +18,9 @@
         are uploading multiple files in zip, please name the main file "main.py" or "run.py" and make sure it is in the root of the zip file. 
     </p>
     <p>
-        If you run into any problems, please refer to the <a href="{{ url_for('how_to') }}#instructions">how to guide</a>.
+        If you run into any problems, please refer to the <a href="{{ url_for('how_to') }}#instructions">how to guide</a>. Join the py2exe.com 
+        <a style="color: #5865f2;" href="https://discord.gg/BT8SxYctKu" target="_blank">discord server</a> to get 
+        help with your project and more. 
     </p>
 </div>
 
@@ -45,7 +33,7 @@
     inside the zip (package names separated by newline). 
 </p>
 <p class="muted-text">
-    **when uploading a zip file, please make sure that your project is in the root of the zip, not in a subfolder
+    **when uploading a zip file, <b>please make sure that your project is in the root of the zip</b>, not in a subfolder
 </p>
 <p class="muted-text" style="margin-top: 8px;">
     The files are stored securely and are only accesible via the link that will be generated for you. All files are deleted after 24 hours.

@@ -1,16 +1,17 @@
 :root {
-    --bg-color: #000314;
+    --bg-color: hsl(240, 60%, 1%);
     --text-color: #fffcdd;
     --muted-text-color: #7b7883;
     --primary-color: #fded6c;
+    --filepond-color: hsl(240, 13%, 14%);
     --secondary-color: #0f3234;
     --border-radius: 10px;
     --button-color: var(--primary-color);
     --button-hover-color: #ffe83a;
     --link-color: var(--text-color);
-    --navbar-bg-color: #000314;
-    --navbar-hover-color: #000f66;
-    --navbar-active-color: #060e3f;
+    --navbar-bg-color: hsl(240, 60%, 1%);
+    --navbar-hover-color: hsl(230, 95%, 22%);
+    --navbar-active-color: hsl(230, 85%, 17%);
     --division-line-color: #2c2a1a;
 }
 
@@ -26,7 +27,7 @@ body {
     width: fit-content;
     min-width: 40vw;
     max-width: min(500px, 95vw);
-    margin: 0 auto 60px auto;
+    margin: 0 auto;
     padding-top: 90px;
     display: flex;
     flex-direction: column;
