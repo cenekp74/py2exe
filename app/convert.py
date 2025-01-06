@@ -18,7 +18,10 @@ def create_venv(directory):
         os.environ["WINEPREFIX"] = initial_dir+"/wine"
         os.environ["WINEPATH"] = initial_dir
         _ = os.system(f"wine {initial_dir}/wine/drive_c/python3.12/python.exe -m virtualenv venv")
-        _ = os.system(f"wine venv/Scripts/python.exe -m pip install pyinstaller && wine venv/Scripts/python.exe -m pip install -r requirements.txt")
+        _ = os.system(f"wine venv/Scripts/python.exe -m pip install pyinstaller")
+        with open("requirements.txt", "r") as reqs_file: # this is to avoid errors if some packages are not found
+            for line in reqs_file.readlines():
+                _ = os.system(f"wine venv/Scripts/python.exe -m pip install {line}")
     os.chdir(initial_dir)
 
 def run_pyinstaller(directory, filename, venv: bool=False):
