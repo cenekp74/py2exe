@@ -22,7 +22,7 @@ def create_venv(directory):
         _ = os.system(f"wine venv/Scripts/python.exe -m pip install pyinstaller")
         with open("requirements.txt", "r") as reqs_file: # this is to avoid errors if some packages are not found
             for line in reqs_file.readlines():
-                line = line.strip().replace("skimage", "scikit-image").replace("cv2", "opencv-python")
+                line = line.strip().replace("skimage", "scikit-image").replace("cv2", "opencv-python").replace("==0.0", "")
                 try:
                     subprocess.run(["wine", "venv/Scripts/python.exe", "-m", "pip", "install", line], check=True)
                 except subprocess.CalledProcessError as e:
