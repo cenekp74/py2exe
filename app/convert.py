@@ -1,6 +1,7 @@
 import os
 import os.path
 import shutil
+import subprocess
 
 def write_to_info_file(directory, message):
     with open(f"instance/conversions/{directory}/info.txt", "w") as info_file:
@@ -21,7 +22,7 @@ def create_venv(directory):
         _ = os.system(f"wine venv/Scripts/python.exe -m pip install pyinstaller")
         with open("requirements.txt", "r") as reqs_file: # this is to avoid errors if some packages are not found
             for line in reqs_file.readlines():
-                _ = os.system(f"wine venv/Scripts/python.exe -m pip install {line}")
+                subprocess.run(["wine", "venv/Scripts/python.exe", "-m", "pip", "install", line], check=True)
     os.chdir(initial_dir)
 
 def run_pyinstaller(directory, filename, venv: bool=False):
