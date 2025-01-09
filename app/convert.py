@@ -18,7 +18,7 @@ def create_venv(directory):
         os.environ["PATH"] = "/usr/bin"
         os.environ["WINEPREFIX"] = initial_dir+"/wine"
         os.environ["WINEPATH"] = initial_dir
-        _ = os.system(f"wine {initial_dir}/wine/drive_c/python3.12/python.exe -m virtualenv venv")
+        _ = os.system(f"wine {initial_dir}/wine/drive_c/python3.11/python.exe -m virtualenv venv")
         _ = os.system(f"wine venv/Scripts/python.exe -m pip install pyinstaller")
         with open("requirements.txt", "r") as reqs_file: # this is to avoid errors if some packages are not found
             for line in reqs_file.readlines():
@@ -47,7 +47,7 @@ def run_pyinstaller(directory, filename, venv: bool=False):
         if venv:
             _ = os.system(f"wine venv/Scripts/python.exe -m PyInstaller {filename} --onedir")
         else:
-            _ = os.system(f"wine {initial_dir}/wine/drive_c/python3.12/python.exe -m PyInstaller {filename} --onedir")
+            _ = os.system(f"wine {initial_dir}/wine/drive_c/python3.11/python.exe -m PyInstaller {filename} --onedir")
     os.chdir(initial_dir)
 
 def convert(directory):
@@ -102,4 +102,4 @@ def convert(directory):
         shutil.make_archive(f"instance/conversions/{directory}/output", "zip", f"instance/conversions/{directory}/dist")
         write_to_info_file(directory, "Created zip archive - ready for download")
     else:
-        write_to_info_file(directory, "An error occured during conversion - please check that your python files run properly on python 3.12.8 and try again")
+        write_to_info_file(directory, "An error occured during conversion - please check that your python files run properly on python 3.11.9 and try again")
