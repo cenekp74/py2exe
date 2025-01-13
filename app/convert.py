@@ -77,25 +77,28 @@ def create_venv(directory):
                     print(f"Pip install {line} failed: {e}")
     os.chdir(initial_dir)
 
-def run_pyinstaller(directory, filename, venv: bool=False):
+def run_pyinstaller(directory, filename, venv: bool=False, icon=None):
     """
-    run pyinstaller - if venv=True, expect virtual environment in "venv/"
+    run pyinstaller - if venv=True, expect virtual environment in "venv/"\n
+    arg icon: filename of icon relative to conversion folder
     """
     initial_dir = os.getcwd()
     os.chdir(f"instance/conversions/{directory}")
+    if not icon:
+        icon = os.path.join(initial_dir, "app", "static", "img", "favicon.ico")
     if os.name == 'nt': # if running on windows
         if venv:
-            _ = os.system(f"venv\Scripts\python.exe -m pyinstaller {filename} --onedir")
+            _ = os.system(f"venv\Scripts\python.exe -m pyinstaller {filename} --onedir --icon={icon}")
         else:
-            _ = os.system(f"pyinstaller {filename} --onedir")
+            _ = os.system(f"pyinstaller {filename} --onedir --icon={icon}")
     else:
         os.environ["PATH"] = "/usr/bin"
         os.environ["WINEPREFIX"] = initial_dir+"/wine"
         os.environ["WINEPATH"] = initial_dir
         if venv:
-            _ = os.system(f"wine venv/Scripts/python.exe -m PyInstaller {filename} --onedir")
+            _ = os.system(f"wine venv/Scripts/python.exe -m PyInstaller {filename} --onedir --icon={icon}")
         else:
-            _ = os.system(f"wine {initial_dir}/wine/drive_c/python3.11/python.exe -m PyInstaller {filename} --onedir")
+            _ = os.system(f"wine {initial_dir}/wine/drive_c/python3.11/python.exe -m PyInstaller {filename} --onedir --icon={icon}")
     os.chdir(initial_dir)
 
 def convert(conversion_id):
@@ -107,9 +110,15 @@ def convert(conversion_id):
         write_to_info_file(conversion_id, "Creating virtual environment")
         create_venv(conversion_id)
         venv = True
-        
+
+    icon = None
+    if "icon.png" in os.listdir(conversion_directory):
+        icon = "icon.png"
+    if "icon.ico" in os.listdir(conversion_directory):
+        icon = "icon.ico"
+
     write_to_info_file(conversion_id, f"Converting - {root_file}\n")
-    run_pyinstaller(conversion_id, root_file, venv=venv)
+    run_pyinstaller(conversion_id, root_file, venv=venv, icon=icon)
 
     if glob(os.path.join(conversion_directory, "dist", "*", "*.exe")):
         write_to_info_file(conversion_id, "Finshed conversion successfully\n")
