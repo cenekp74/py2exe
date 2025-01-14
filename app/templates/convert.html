@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Convert your python script to exe online</title>
+<title>Compile Python to EXE Online: Easy, Fast, and Free with py2exe.com</title>
 <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
 <link rel="stylesheet" href="{{ url_for('static', filename='css/convert.css') }}">
+<meta name="description" content="py2exe.com - the first online Python to EXE compiler">
 {% endblock %}
 
 
 {% block body %}
 <div>
-    <h1>Convert your python project to exe!</h1>
+    <h1>Convert your python project to exe online!</h1>
     <p>
-        <b>py2exe.com</b> provides a simple way to convert your python projects to windows executable (.exe).
+        <b>py2exe.com</b> provides a simple way to convert your python projects to windows executable (.exe) online.
     </p>
     <p>
         To convert your project, please upload it below. You can upload a single <b>.py</b> script as well as a <b>zip</b> archive of multiple files. If you
@@ -22,7 +23,7 @@
     </p>
     <p>
         If you run into any problems, please refer to the <a href="{{ url_for('how_to') }}#instructions">how to guide</a>. Join the py2exe.com 
-        <a style="color: #5865f2;" href="https://discord.gg/BT8SxYctKu" target="_blank">discord server</a> to get 
+        <a href="https://discord.gg/BT8SxYctKu" target="_blank">discord server</a> to get 
         help with your project and more. 
     </p>
 </div>

@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>How to compile your python script to exe online</title>
+<title>Learn how to compile Python to EXE online using py2exe.com</title>
+<meta name="description" content="Learn how to easily convert Python scripts to Windows executables online with py2exe.com. No complex setup needed, supports multi-file projects and custom icons.">
 <style>
     h1 {
         margin-top: 20px;
@@ -21,22 +22,29 @@
 <p style="margin: 0;">
     When you finish your python project and want to distribute it, the best way to do it is to create an executable. 
     This can be achieved using various tools like <a href="https://pyinstaller.org">pyinstaller</a> or <a href="https://nuitka.net/">nuitka</a>. 
-    But working with these tools can be difficult and annoying for some, and none of them can compile python to a windows executable from linux or macos.
+    However, these tools can be complex to use, and they don't support compiling Python to Windows executables on Linux or macOS.
 </p>
 <p>
-    This is where <a href="/">py2exe.com</a> comes in. It is the first and only <b>online python compiler</b>. It uses pyinstaller under the hood to create
-    windows executables seamlessly. 
+    With <a href="/">py2exe.com</a>, you can easily create Windows executables online without hassle.
+    Py2exe.com is the first and only tool that lets you compile Python scripts into Windows executables entirely online. 
 </p>
-<h2>Instructions</h2>
+<h2>How to use py2exe.com</h2>
 <p>
     Using py2exe.com is quite straightforward. Simply upload your python script to <a href="/convert">py2exe.com/convert</a> and wait for it to convert. 
     <br>If you have a bigger project with multiple files, create a zip archive from them. If your project requires any special libraries, please include them
-    in requirements.txt inside of the zip. Then just upload your zip archive and wait. It might take some time for larger projects to compile, but it should be no more than 
+    in requirements.txt inside of the zip.
+    <br>If you want to give your exe file a custom icon, you can do that by putting it inside "icon.png" or "icon.ico" file inside the zip.
+    <br>Then just upload your zip archive and wait. It might take some time for larger projects to compile, but it should be no more than 
     5 minutes. 
 </p>
 <p style="margin: 0;">
-    The result of the conversion will be a zip file with the .exe inside. To run in, first unzip the output file. Make sure to always keep the .exe file in the same directory
-    as "_internal" folder. 
+    The result of the conversion will be a zip file with the .exe inside. To run in, first unzip the output file.
+    Ensure that the .exe file remains in the same directory as the _internal folder for proper functionality.
+</p>
+<h2>Need help?</h2>
+<p>
+    If you run into any problems with convering your files, please contact me using <a href="https://discord.gg/BT8SxYctKu" target="_blank">discord</a> or
+    <a href="mailto:admin@py2exe.com">email</a>.
 </p>
 
 {% endblock %}

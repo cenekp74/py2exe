@@ -8,7 +8,8 @@
     --border-radius: 10px;
     --button-color: var(--primary-color);
     --button-hover-color: #ffe83a;
-    --link-color: var(--text-color);
+    --link-color: hsl(218, 90%, 74%);
+    --link-hover-color: hsl(218, 100%, 70%);
     --navbar-bg-color: hsl(240, 60%, 1%);
     --navbar-hover-color: hsl(230, 95%, 22%);
     --navbar-active-color: hsl(230, 85%, 17%);
@@ -37,6 +38,10 @@ body {
 
 a {
     color: var(--link-color);
+}
+
+a:hover {
+    color: var(--link-hover-color);
 }
 
 p {
