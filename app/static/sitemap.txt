@@ -1,0 +1,3 @@
+https://py2exe.com/convert
+https://py2exe.com/about
+https://py2exe.com/how-to
