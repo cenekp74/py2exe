@@ -17,5 +17,9 @@ def start_conversion(conversion_id):
 
 @shared_task
 def delete_conversion(conversion_id):
-    shutil.rmtree(f"instance/conversions/{conversion_id}")
+    try:
+        shutil.rmtree(f"instance/conversions/{conversion_id}")
+    except Exception as _e:
+        print(f"Error deleting conversion {conversion_id}")
+        return False
     return True
