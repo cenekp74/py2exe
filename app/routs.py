@@ -26,7 +26,7 @@ def convert():
     file.save(f"instance/conversions/{token}/{filename}")
 
     start_conversion.delay(token)
-    delete_conversion.apply_async(args=[token], countdown=6*60*60)
+    delete_conversion.apply_async(args=[token], countdown=2*60*60)
 
     return token
 
